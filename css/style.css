@@ -34,22 +34,37 @@ aside{
     align-items: center;
 }
 
+.myself{
+    display: flex;
+    align-items: center;
+}
+
+.myself span{
+    font-size: 20px;
+}
+
 .circle{
     width: 15%;
     border-radius: 50%;
     margin: 10px;
 }
 
-.container aside header  .profilo i{
-    display: flex;
-    justify-content: right;
+.i-container i{
     margin: 10px;
     color: gray;
+    font-size: 25px;
+}
+
+.i-container{
+    display: flex;
+    justify-content: right;
 }
 
 /* notifiche */
 
 .notifiche{
+    display: flex;
+    align-items: center;
     padding: 10px;
     background-color: lightskyblue;
 }
@@ -57,12 +72,22 @@ aside{
 .notifiche i{
     color: lightskyblue;
     background-color: #fff;
-    padding: 10px;
+    padding: 20px 0;
     text-align: center;
+    font-size: 20px;
+}
+
+.scritte span{
+    line-height: 1.6;
+}
+
+.bold{
+    font-weight: bold;
 }
 
 .underline{
-    margin-left: 78px;
+    text-decoration: underline;
+    color: gray;
 }
 
 /* search */
@@ -72,12 +97,15 @@ aside{
     color: gray;
 }
 
-.search button{
+button{
     padding: 5px 10px;
+    border: 0px;
+    background-color: whitesmoke;
 }
 
 .search input{
-    width: 88%;
+    margin: 0;
+    width: 93%;
     height: 29px;
 }
 
@@ -85,6 +113,7 @@ aside{
 
 .contatti{
     overflow-y: auto;
+    background-color: #fff;
 }
 
 .utente{
@@ -105,26 +134,43 @@ main{
     height: 100%;
 }
 
+/* utente-attivo */
+
+.utente-attivo{
+    display: flex;
+    align-items: center;
+}
+
+.utente-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.utente-container img{
+    width: 8.8%;
+}
+
 .chat{
     background-image: url(../img/mine.jpg);
-    height: calc(100% - 200px);
+    height: 800px;
     width: 100%;
     overflow-y: auto;
 }
 
 /* input */
 
-/* .input{
+.input{
     display: flex;
-    justify-content: flex-end;
-} */
+    align-items: center;
+}
 
 .input button, .input input{
     margin: 5px 0;
 }
 
 .input button{
-    padding: 10px;
+    font-size: 25px;
 }
 
 .input input{
