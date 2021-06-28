@@ -3,3 +3,62 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    background-image: url(../img/background.png);
+    padding: 2% 10%;
+}
+
+.container{
+    width: 100%;
+}
+
+.clearfix::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* aside */
+
+aside{
+    width: 30%;
+    border: 1px solid gray;
+}
+
+/* profilo */
+
+.profilo{
+    display: flex;
+    align-items: center;
+}
+
+.circle{
+    width: 15%;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+i{
+    display: flex;
+    justify-content: right;
+    margin: 10px;
+    color: gray;
+}
+
+/* main */
+
+main{
+    width: 70%;
+    height: 100%;
+}
+
+/* colori */
+
+.cyan{
+    background-color: #009688;
+}
+
+.whitesmoke{
+    background-color: whitesmoke;
+}
