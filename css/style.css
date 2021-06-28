@@ -64,12 +64,29 @@ aside{
     margin-left: 78px;
 }
 
+/* search */
+
+.search{
+    margin: 5px;
+    color: gray;
+}
+
+.search button{
+    padding: 5px 10px;
+}
+
+.search input{
+    width: 88%;
+    height: 29px;
+}
+
 /* main */
 
 main{
     width: 60%;
     height: 100%;
 }
+
 
 /* colori */
 
