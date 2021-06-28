@@ -80,6 +80,21 @@ aside{
     height: 29px;
 }
 
+/* contatti  */
+
+.contatti{
+    overflow-y: auto;
+}
+
+.utente{
+    display: flex;
+    align-items:flex-start;
+}
+
+.utente span{
+    margin-top: 15px;
+}
+
 /* main */
 
 main{
