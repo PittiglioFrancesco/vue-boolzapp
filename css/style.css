@@ -22,7 +22,7 @@ body{
 /* aside */
 
 aside{
-    width: 30%;
+    width: 40%;
     border: 1px solid gray;
 }
 
@@ -39,17 +39,35 @@ aside{
     margin: 10px;
 }
 
-i{
+.container aside header  .profilo i{
     display: flex;
     justify-content: right;
     margin: 10px;
     color: gray;
 }
 
+/* notifiche */
+
+.notifiche{
+    padding: 10px;
+    background-color: lightskyblue;
+}
+
+.notifiche i{
+    color: lightskyblue;
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.underline{
+    margin-left: 78px;
+}
+
 /* main */
 
 main{
-    width: 70%;
+    width: 60%;
     height: 100%;
 }
 
