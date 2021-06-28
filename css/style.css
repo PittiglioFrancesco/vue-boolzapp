@@ -10,6 +10,7 @@ body{
 }
 
 .container{
+    display: flex;
     width: 100%;
 }
 
@@ -98,10 +99,38 @@ aside{
 /* main */
 
 main{
+    display: flex;
+    flex-direction: column;
     width: 60%;
     height: 100%;
 }
 
+.chat{
+    background-image: url(../img/mine.jpg);
+    height: calc(100% - 200px);
+    width: 100%;
+    overflow-y: auto;
+}
+
+/* input */
+
+/* .input{
+    display: flex;
+    justify-content: flex-end;
+} */
+
+.input button, .input input{
+    margin: 5px 0;
+}
+
+.input button{
+    padding: 10px;
+}
+
+.input input{
+    padding: 10px;
+    width: 840px;
+}
 
 /* colori */
 
