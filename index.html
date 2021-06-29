@@ -13,7 +13,7 @@
 </head>
 <body>
     
-    <div class="container whitesmoke">
+    <div class="container whitesmoke" id="app">
 
         <!-- aside -->
         <aside>
@@ -54,24 +54,9 @@
 
             <div class="contatti">
 
-                <div class="utente">
-                    <img src="img/avatar_2.jpg" alt="avatar_2" class="circle">
-                    <span class="bold">Michele</span>
-                </div>
-
-                <div class="utente">
-                    <img src="img/avatar_2.jpg" alt="avatar_2" class="circle">
-                    <span class="bold">Michele</span>
-                </div>
-
-                <div class="utente">
-                    <img src="img/avatar_2.jpg" alt="avatar_2" class="circle">
-                    <span class="bold">Michele</span>
-                </div>
-
-                <div class="utente">
-                    <img src="img/avatar_2.jpg" alt="avatar_2" class="circle">
-                    <span class="bold">Michele</span>
+                <div class="utente" v-for="item in contacts">
+                    <img :src=" 'img/avatar' + item.avatar + '.jpg' " alt="avatar_2" class="circle">
+                    <span class="bold"> {{item.name}} </span>
                 </div>
 
             </div>
