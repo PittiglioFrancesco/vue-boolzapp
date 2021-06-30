@@ -183,12 +183,12 @@ main{
     padding: 2% 2% 0 2%;
 }
 
-.sent{
+.received{
     background-color: #fff;
     float: left;
 }
 
-.received{
+.sent{
     background-color: lime;
     float: right;    
 }

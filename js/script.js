@@ -12,6 +12,7 @@ const app = new Vue({
             avatar: '_io'
         },
         contactActive: 0,
+        newMsg: "",
         contacts: [
             {
             name: 'Michele',
@@ -127,13 +128,39 @@ const app = new Vue({
                 }
             ],
             },
-        ]
+        ],
+
+        newMessages: [{
+            date: '20/03/2020 16:35:00',
+            text: '',
+            status: 'sent'
+        }]
     },
 
     methods:{
         setActive(indice){
             this.contactActive = indice;
             console.log(this.contactActive);
-        }
+        },
+        addMsg(){
+            this.newMsg = this.plusMsg;
+            // alert(this.newMsg);
+            this.newMessages.text = this.newMsg;
+            // alert(this.newMessages.text);
+            // console.log(this.newMessages.text);
+            this.contacts[this.contactActive].messages.push(this.newMessages);
+            let a = this;
+            a.plusMsg = '';
+            setTimeout(function(){
+                a.newMessages.text = 'Ok.';
+                a.newMessages.status = 'received';
+                a.contacts[a.contactActive].messages.push(a.newMessages);
+            }, 1000);
+        },
+        // okMsg(){
+        //     this.newMessages.text = 'Ok.';
+        //     this.newMessages.status = 'received';
+        //     this.contacts[this.contactActive].messages.push(this.newMessages);
+        // }
     }
 });
