@@ -12,6 +12,7 @@ body{
 .container{
     display: flex;
     width: 100%;
+    height: 95%;
 }
 
 .clearfix::after{
@@ -24,22 +25,23 @@ body{
 
 aside{
     width: 40%;
-    border: 1px solid gray;
+    border-right: 1px solid gray;
 }
 
 /* profilo */
+
+.header-left{
+    display: flex;
+    align-items: center;
+    height: 70px;
+}
 
 .profilo{
     display: flex;
     align-items: center;
 }
 
-.myself{
-    display: flex;
-    align-items: center;
-}
-
-.myself span{
+.profilo span{
     font-size: 20px;
 }
 
@@ -65,16 +67,17 @@ aside{
 .notifiche{
     display: flex;
     align-items: center;
-    padding: 10px;
     background-color: lightskyblue;
+    height: 80px;
+    padding: 10px;
 }
 
 .notifiche i{
     color: lightskyblue;
     background-color: #fff;
-    padding: 20px 0;
     text-align: center;
     font-size: 20px;
+    padding: 4% 0;
 }
 
 .scritte span{
@@ -93,27 +96,31 @@ aside{
 /* search */
 
 .search{
+    display: flex;
+    align-items: center;
     margin: 5px;
     color: gray;
+    width: 100%;
+    height: 70px;
 }
 
-button{
-    padding: 5px 10px;
-    border: 0px;
-    background-color: whitesmoke;
+.search i{
+    font-size: 25px;
 }
 
 .search input{
     margin: 0;
-    width: 93%;
-    height: 29px;
+    width: 92%;
+    height: 60px;
+    border: 0px;
 }
 
 /* contatti  */
 
 .contatti{
-    overflow-y: auto;
+    overflow-y: scroll;
     background-color: #fff;
+    height: calc(100% - 220px);
 }
 
 .utente{
@@ -139,6 +146,8 @@ main{
 .utente-attivo{
     display: flex;
     align-items: center;
+    height: 70px;
+
 }
 
 .utente-container{
@@ -151,31 +160,72 @@ main{
     width: 8.8%;
 }
 
+/* chat */
+
 .chat{
     background-image: url(../img/mine.jpg);
-    height: 800px;
+    height: calc(100% - 140px);
+    min-height: 630px;
     width: 100%;
-    overflow-y: auto;
+    overflow-y: scroll;
+}
+
+.block{
+    display: block;
+}
+
+.messaggio{
+    margin: 5%;
+    margin-bottom: 50px;
+    padding: 2% 2% 0 5%;
+    border-radius: 20px;
+    text-align: left;
+    padding: 2% 2% 0 2%;
+}
+
+.sent{
+    background-color: #fff;
+    float: left;
+}
+
+.received{
+    background-color: lime;
+    float: right;    
+}
+
+#time{
+    font-size: 10px;
+    float: right;
+    color: gray;
+    margin-bottom: 5px;
 }
 
 /* input */
 
 .input{
     display: flex;
+    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    height: 70px;
 }
 
 .input button, .input input{
     margin: 5px 0;
+    height: 50px;
+    width: 50px;
 }
 
 .input button{
     font-size: 25px;
+    border: 0px;
+    background-color: whitesmoke;
 }
 
 .input input{
     padding: 10px;
-    width: 840px;
+    width: 100%;
+    height: 50px;
 }
 
 /* colori */

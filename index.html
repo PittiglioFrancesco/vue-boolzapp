@@ -20,10 +20,10 @@
 
             <header>
 
-                <div class="profilo">
-                    <div class="myself">
-                        <img class="circle" src="img/avatar_1.jpg" alt="avatar_1">
-                        <span class="bold">Nome Utente</span>
+                <div class="header-left">
+                    <div class="profilo">
+                        <img class="circle" :src="'img/avatar' + user.avatar + '.jpg'" alt="avatar_io">
+                        <span class="bold">{{user.name}}</span>
                     </div>
 
                     <div class="i-container">
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="search">
-                    <button><i class="fas fa-search"></i></button>
+                    <i class="fas fa-search"></i>
                     <input type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
 
@@ -54,7 +54,7 @@
 
             <div class="contatti">
 
-                <div class="utente" v-for="item in contacts">
+                <div class="utente" v-for="(item, index) in contacts" @click="setActive(index)">
                     <img :src=" 'img/avatar' + item.avatar + '.jpg' " alt="avatar_2" class="circle">
                     <span class="bold"> {{item.name}} </span>
                 </div>
@@ -68,10 +68,10 @@
 
             <div class="utente-attivo">
                 <div class="utente-container">
-                    <img class="circle" src="img/avatar_1.jpg" alt="avatar_1">
+                    <img class="circle" :src="'img/avatar' + contacts[contactActive].avatar + '.jpg'" alt="avatar_1">
                     
                     <div>
-                        <span class="bold">Nome Utente</span>
+                        <span class="bold"> {{contacts[contactActive].name}} </span>
                         <br>
                         <span>Ultimo accesso oggi alle</span>
                     </div>
@@ -85,7 +85,16 @@
 
             </div>
 
-            <div class="chat"></div>
+            <div class="chat clearfix">
+
+                <div class="block">
+                    <div class="messaggio" :class="text.status " v-for="text in contacts[contactActive].messages">
+                        <p> {{text.text}} </p>
+                        <span id="time"> {{text.date}} </span>
+                    </div>
+                </div>
+
+            </div>
 
             <div class="input">
                 <button><i class="far fa-smile"></i></button>
