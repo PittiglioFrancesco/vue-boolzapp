@@ -195,17 +195,25 @@ const app = new Vue({
             //     }
             // }
 
-            nomi = ['Michele', 'Fabio', 'Antonio', 'Lorenzo', 'Ciro'];
+            // nomi = ['Michele', 'Fabio', 'Antonio', 'Lorenzo', 'Ciro'];
 
-            let i = 0;
-            const str1 = this.searchText.toLowerCase();
-                while ((i < nomi.length) || (this.bool != "true")){
-                    const str2 = nomi[i].toLowerCase();
-                    console.log(str2);
-                    console.log(this.bool);
-                    this.bool = str1.includes(str2);
-                    i++;
-                }
+            // let i = 0;
+            // const str1 = this.searchText.toLowerCase();
+            //     while ((i < nomi.length) || (this.bool != "true")){
+            //         const str2 = nomi[i].toLowerCase();
+            //         console.log(str2);
+            //         console.log(this.bool);
+            //         this.bool = str1.includes(str2);
+            //         i++;
+            //     }
+
+
+            this.contacts.forEach((element) => {
+                const str1 = this.searchText.toLowerCase();
+                const str2 = element.name.toLowerCase();
+                element.visible = str2.includes(str1);
+                console.log(element.visible);
+            });
             
         }
     }

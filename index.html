@@ -56,11 +56,9 @@
 
             <div class="contatti">
 
-                <div class="utente" v-for="(item, index) in contacts" @click="setActive(index)">
-                    <div v-if=" (bool == 'true') || (searchText.length == 0) ">
+                <div class="utente" v-for="(item, index) in contacts" @click="setActive(index)" v-if="(item.visible == true) || (searchText.length == 0) ">
                         <img :src=" 'img/avatar' + item.avatar + '.jpg' " alt="avatar_2" class="circle">
                         <span class="bold"> {{item.name}} </span>
-                    </div>
                 </div>
 
             </div>
