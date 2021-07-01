@@ -14,7 +14,7 @@ const app = new Vue({
         contactActive: 0,
         newMsg: '',
         searchText: '',
-        searchResult: [0, 1, 2, 3, 4],
+        bool: 'true',
         contacts: [
             {
             name: 'Michele',
@@ -170,30 +170,43 @@ const app = new Vue({
             }
         },
         submitSearch(){
-            let a = 0;
-            this.searchText = this.searchText.charAt(0).toUpperCase() + this.searchText.slice(1);
-            console.log(this.searchText);
-            console.log(this.searchText.length);
-            console.log(this.searchResult);
-            if (this.searchText.length > 0) {
-                for (let n = 0; n < this.searchText.length; n++){
-                    for (let i = 0; i < this.contacts.length; i++){
-                        for (let j = 0; j < this.contacts[i].name.length; j++){
-                           if (this.searchText[i] == this.contacts[i].name[j]) {
-                               a++;
-                           }
-                        }
-                    if (a != this.searchText.length) {
-                        this.searchResult[i] = 10;
-                    }
-                    a = 0;
-                    }
+            // let a = 0;
+            // this.searchText = this.searchText.charAt(0).toUpperCase() + this.searchText.slice(1);
+            // console.log(this.searchText);
+            // console.log(this.searchText.length);
+            // console.log(this.searchResult);
+            // if (this.searchText.length > 0) {
+            //     for (let n = 0; n < this.searchText.length; n++){
+            //         for (let i = 0; i < this.contacts.length; i++){
+            //             for (let j = 0; j < this.contacts[i].name.length; j++){
+            //                if (this.searchText[i] == this.contacts[i].name[j]) {
+            //                    a++;
+            //                }
+            //             }
+            //         if (a != this.searchText.length) {
+            //             this.searchResult[i] = 10;
+            //         }
+            //         a = 0;
+            //         }
+            //     }
+            // } else {
+            //     for (let i = 0; i < this.contacts.length; i++){
+            //         this.searchResult[i] = i;
+            //     }
+            // }
+
+            nomi = ['Michele', 'Fabio', 'Antonio', 'Lorenzo', 'Ciro'];
+
+            let i = 0;
+            const str1 = this.searchText.toLowerCase();
+                while ((i < nomi.length) || (this.bool != "true")){
+                    const str2 = nomi[i].toLowerCase();
+                    console.log(str2);
+                    console.log(this.bool);
+                    this.bool = str1.includes(str2);
+                    i++;
                 }
-            } else {
-                for (let i = 0; i < this.contacts.length; i++){
-                    this.searchResult[i] = i;
-                }
-            }
+            
         }
     }
 });
