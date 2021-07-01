@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="js/script.js">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
 
     <title>BoolzApp</title>
 </head>
@@ -47,7 +49,7 @@
 
                 <div class="search">
                     <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input type="text" placeholder="Cerca o inizia una nuova chat" @keyup="submitSearch" v-model="searchText">
                 </div>
 
             </header>
@@ -55,8 +57,10 @@
             <div class="contatti">
 
                 <div class="utente" v-for="(item, index) in contacts" @click="setActive(index)">
-                    <img :src=" 'img/avatar' + item.avatar + '.jpg' " alt="avatar_2" class="circle">
-                    <span class="bold"> {{item.name}} </span>
+                    <div v-if="searchResult[index] == index">
+                        <img :src=" 'img/avatar' + item.avatar + '.jpg' " alt="avatar_2" class="circle">
+                        <span class="bold"> {{item.name}} </span>
+                    </div>
                 </div>
 
             </div>
@@ -98,7 +102,7 @@
 
             <div class="input">
                 <button><i class="far fa-smile"></i></button>
-                <input type="text" placeholder="Scrivi un messaggio" @keyup.enter="addMsg" v-model="plusMsg">
+                <input type="text" placeholder="Scrivi un messaggio" @keyup.enter="addMsg" v-model="newMsg">
                 <button><i class="fas fa-microphone"></i></button>
             </div>
 

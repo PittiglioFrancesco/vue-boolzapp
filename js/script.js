@@ -12,7 +12,9 @@ const app = new Vue({
             avatar: '_io'
         },
         contactActive: 0,
-        newMsg: "",
+        newMsg: '',
+        searchText: '',
+        searchResult: [0, 1, 2, 3, 4],
         contacts: [
             {
             name: 'Michele',
@@ -130,11 +132,16 @@ const app = new Vue({
             },
         ],
 
-        newMessages: [{
-            date: '20/03/2020 16:35:00',
+        newSent: {
+            date: '',
             text: '',
-            status: 'sent'
-        }]
+            status: ''
+        },
+        newReceived: {
+            date: '',
+            text: '',
+            status: ''
+        }
     },
 
     methods:{
@@ -143,24 +150,50 @@ const app = new Vue({
             console.log(this.contactActive);
         },
         addMsg(){
-            this.newMsg = this.plusMsg;
-            // alert(this.newMsg);
-            this.newMessages.text = this.newMsg;
-            // alert(this.newMessages.text);
-            // console.log(this.newMessages.text);
-            this.contacts[this.contactActive].messages.push(this.newMessages);
-            let a = this;
-            a.plusMsg = '';
-            setTimeout(function(){
-                a.newMessages.text = 'Ok.';
-                a.newMessages.status = 'received';
-                a.contacts[a.contactActive].messages.push(a.newMessages);
-            }, 1000);
+            if (this.newMsg != 0) {
+                const newMex = {
+                date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
+                text: this.newMsg,
+                status: 'sent'
+                };
+                this.contacts[this.contactActive].messages.push(newMex);
+                this.newMsg = ''
+
+                setTimeout(() => {
+                    const newRisp = {
+                        date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
+                        text: 'Ok.',
+                        status: 'received'
+                    };
+                    this.contacts[this.contactActive].messages.push(newRisp);
+                }, 1000);
+            }
         },
-        // okMsg(){
-        //     this.newMessages.text = 'Ok.';
-        //     this.newMessages.status = 'received';
-        //     this.contacts[this.contactActive].messages.push(this.newMessages);
-        // }
+        submitSearch(){
+            let a = 0;
+            this.searchText = this.searchText.charAt(0).toUpperCase() + this.searchText.slice(1);
+            console.log(this.searchText);
+            console.log(this.searchText.length);
+            console.log(this.searchResult);
+            if (this.searchText.length > 0) {
+                for (let n = 0; n < this.searchText.length; n++){
+                    for (let i = 0; i < this.contacts.length; i++){
+                        for (let j = 0; j < this.contacts[i].name.length; j++){
+                           if (this.searchText[i] == this.contacts[i].name[j]) {
+                               a++;
+                           }
+                        }
+                    if (a != this.searchText.length) {
+                        this.searchResult[i] = 10;
+                    }
+                    a = 0;
+                    }
+                }
+            } else {
+                for (let i = 0; i < this.contacts.length; i++){
+                    this.searchResult[i] = i;
+                }
+            }
+        }
     }
 });
